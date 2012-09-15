@@ -1,0 +1,40 @@
+<h1>Listing comments</h1>
+
+<div class="row">
+  <% @comments.each do |comment| %>
+    <div class="span4 block">
+      <h2><%= comment.user_name %></h2>
+      <p><%= comment.body %></p>
+      <%= comment.idea_id %>
+      <br>
+      <%= link_to 'Show', comment %>
+      <%= link_to 'Edit', edit_comment_path(comment) %>
+      <%= link_to 'Destroy', comment, confirm: 'Are you sure?', method: :delete %>
+    </div>
+  <% end %>
+</div>
+
+<!--<table>
+  <tr>
+    <th>User name</th>
+    <th>Body</th>
+    <th>Idea</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<br />-->
+
+<%= link_to 'New Comment', new_comment_path, :class => 'btn' %>
